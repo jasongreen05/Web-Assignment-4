@@ -1,0 +1,180 @@
+
+:root {
+  --bg: #1f2557;
+  --surface: #2e3477;
+  --text: #ffffff;
+  --muted: #b8b5e8;
+  --brand: #ffb27c;
+  --display: "Bahnschrift", "DIN Alternate", sans-serif;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  width: 100%;
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: 1.75rem;
+}
+
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+label {
+  width: 100%;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  background: var(--text);
+  color: var(--bg);
+}
+
+button {
+  padding: 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: var(--brand);
+  color: var(--bg);
+  transition: background 180ms ease-out;
+}
+
+button:hover {
+  background: var(--text);
+}
+
+#status {
+  font-weight: 600;
+}
+
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "place icon"
+    "temp temp"
+    "cond cond"
+    "details details";
+  gap: 8px;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--surface);
+  animation: appear 250ms ease-out;
+}
+
+
+.hidden {
+  display: none;
+}
+
+#place {
+  grid-area: place;
+  align-self: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--display);
+  font-size: 1.5rem;
+}
+
+#icon {
+  grid-area: icon;
+  align-self: center;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+#temp {
+  grid-area: temp;
+  font-family: var(--display);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#conditions {
+  grid-area: cond;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+
+.details {
+  grid-area: details;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details div {
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--brand);
+}
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 600px) {
+  main {
+    width: 520px;
+  }
+
+ 
+  .card {
+    grid-template-areas:
+      "place icon"
+      "temp icon"
+      "cond cond"
+      "details details";
+  }
+
+  #temp {
+    font-size: 6.5rem;
+  }
+
+  #icon {
+    font-size: 6rem;
+  }
+}
